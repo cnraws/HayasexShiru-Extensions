@@ -1,33 +1,49 @@
-export default {
-  id: "sukebei",
-  name: "Sukebei",
-  type: "torrent",
-  nsfw: true,
+import AbstractSource from '../sources/abstract.js'
 
-  // IMPORTANT: Shiru expects validate as a VALUE, not a function
-  validate: Promise.resolve(true),
+/**
+ * @typedef {import('../sources/index.d.ts').TorrentQuery} TorrentQuery
+ * @typedef {import('../sources/index.d.ts').TorrentResult} TorrentResult
+ */
 
+export default new class Sukebei extends AbstractSource {
+  base = 'https://torrent-search-api-livid.vercel.app/api/sukebei/'
+
+  /**
+   * @param {TorrentQuery} options
+   * @returns {Promise<TorrentResult[]>}
+   */
   async single({ titles, episode }) {
     if (!titles?.length) return []
     return this._search(titles[0], episode)
-  },
+  }
 
-  batch(options) {
+  /**
+   * @param {TorrentQuery} options
+   * @returns {Promise<TorrentResult[]>}
+   */
+  async batch(options) {
     return this.single(options)
-  },
+  }
 
-  movie(options) {
+  /**
+   * @param {TorrentQuery} options
+   * @returns {Promise<TorrentResult[]>}
+   */
+  async movie(options) {
     return this.single(options)
-  },
+  }
 
+  /**
+   * Internal search method
+   * @param {string} title
+   * @param {number} [episode]
+   * @returns {Promise<TorrentResult[]>}
+   */
   async _search(title, episode) {
     let query = title.replace(/[^\w\s-]/g, " ").trim()
     if (episode) query += ` ${episode.toString().padStart(2, "0")}`
 
-    const url =
-      "https://torrent-search-api-livid.vercel.app/api/sukebei/" +
-      encodeURIComponent(query)
-
+    const url = this.base + encodeURIComponent(query)
     const res = await fetch(url)
     if (!res.ok) return []
 
@@ -47,4 +63,17 @@ export default {
       type: "alt"
     }))
   }
-}
+
+  /**
+   * Validates the source is reachable
+   * @returns {Promise<boolean>}
+   */
+  async validate() {
+    try {
+      const res = await fetch(this.base + 'test')
+      return res.ok
+    } catch {
+      return false
+    }
+  }
+}()

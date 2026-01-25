@@ -1,6 +1,7 @@
 {
   "name": "@rewelp/shiru-extensions",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "main": "index.json",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "type": "module"
 }
