@@ -1,11 +1,11 @@
 import AbstractSource from '../abstract.js'
 
 /**
- * @typedef {import('../sources/index.d.ts').TorrentQuery} TorrentQuery
- * @typedef {import('../sources/index.d.ts').TorrentResult} TorrentResult
+ * @typedef {import('../index.d.ts').TorrentQuery} TorrentQuery
+ * @typedef {import('../index.d.ts').TorrentResult} TorrentResult
  */
 
-export default new class Sukebei extends AbstractSource {
+export default new class SukebeiSrc extends AbstractSource {
   base = 'https://torrent-search-api-livid.vercel.app/api/sukebei/'
 
   /**
@@ -70,7 +70,8 @@ export default new class Sukebei extends AbstractSource {
    */
   async validate() {
     try {
-      const res = await fetch(this.base + 'test')
+      // Use a real Sukebei search query for validation
+      const res = await fetch(this.base + 'one%20piece')
       return res.ok
     } catch {
       return false
