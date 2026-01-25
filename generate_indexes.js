@@ -20,15 +20,15 @@ const sources = [
 
 const REPO_BASE = "https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main";
 
-// Shiru index - MUST be an ARRAY like the community repo
+// Shiru index - IDs and mains now use *src suffix*
 const shiruIndex = sources.map((s) => ({
-  id: s.id,
-  name: s.name,
+  id: `${s.id}src`,
+  name: s.name + " SRC",
   version: s.version,
-  main: `sources/${s.id}`,  // Changed path to match community structure
+  main: `sources/${s.id}src`, // directory for source (with index.js inside)
   type: s.type,
   nsfw: s.nsfw || false,
-  description: `Shiru extension for ${s.name}`,
+  description: `Shiru extension for ${s.name} (custom)`,
   icon: s.icon,
   update: "gh:ReWelp/HayasexShiru-Extensions/shiru",
 }));
@@ -47,7 +47,7 @@ const shiruPackage = {
 
 writeFileSync("./shiru/package.json", JSON.stringify(shiruPackage, null, 2));
 
-// Hayase index (stays the same)
+// Hayase index (unchanged)
 const hayaseIndex = sources.map((s) => ({
   id: `hayase.extension.${s.id}`,
   name: s.name,
