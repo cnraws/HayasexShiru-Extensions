@@ -16,18 +16,18 @@ Includes **Nyaa** and **Sukebei** support.
 
 ## Installation
 
-### Add All Sources
+### Hayase
 
-1. Open Shiru or Hayase and navigate to **Settings > Extensions > Sources**  
-2. Paste the repository URL: gh:ReWelp/HayasexShiru-Extensions
-3. Click **Add Source**
+Paste this URL into **Settings → Extensions → Sources**:
 
-### Add Individual Sources
+https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main/hayase/index.json
 
-| Source | Source URL |
-|--------|------------|
-| Nyaa   | gh:ReWelp/HayasexShiru-Extensions/nyaa |
-| Sukebei | gh:ReWelp/HayasexShiru-Extensions/sukebei |
+
+### Shiru
+
+Paste this URL into **Settings → Sources**:
+
+https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main/shiru/index.json
 
 ---
 
