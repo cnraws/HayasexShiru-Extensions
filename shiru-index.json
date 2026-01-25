@@ -4,7 +4,7 @@
     "name": "Nyaa",
     "version": "0.0.3",
     "type": "torrent",
-    "main": "shiru/nyaa/code.js",
+    "main": "./shiru/nyaa/code.js",
     "description": "Shiru extension for Nyaa",
     "icon": "https://nyaa.si/static/favicon.png",
     "update": "gh:ReWelp/HayasexShiru-Extensions"
@@ -15,7 +15,7 @@
     "version": "0.0.4",
     "type": "torrent",
     "nsfw": true,
-    "main": "shiru/sukebei/code.js",
+    "main": "./shiru/sukebei/code.js",
     "description": "NSFW torrent source (Sukebei)",
     "icon": "https://sukebei.nyaa.si/static/favicon.png",
     "update": "gh:ReWelp/HayasexShiru-Extensions"

@@ -27,7 +27,7 @@ https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main/hayase/ind
 
 Paste this URL into **Settings → Sources**:
 
-https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main/shiru/index.json
+https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main/shiru-index.json
 
 | Alternatively | `gh:ReWelp/HayasexShiru-Extensions/shiru` |
 
