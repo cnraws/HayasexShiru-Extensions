@@ -20,12 +20,12 @@ const sources = [
 
 const REPO_BASE = "https://raw.githubusercontent.com/ReWelp/HayasexShiru-Extensions/main";
 
-// Shiru index - IDs and mains now use *src suffix*
+// Shiru index
 const shiruIndex = sources.map((s) => ({
   id: `${s.id}src`,
   name: s.name + " SRC",
   version: s.version,
-  main: `sources/${s.id}src`, // directory for source (with index.js inside)
+  main: `sources/${s.id}src`, // Source dir
   type: s.type,
   nsfw: s.nsfw || false,
   description: `Shiru extension for ${s.name} (custom)`,
@@ -35,7 +35,7 @@ const shiruIndex = sources.map((s) => ({
 
 writeFileSync("./shiru/index.json", JSON.stringify(shiruIndex, null, 2));
 
-// ALSO need to create a package.json in shiru folder
+// Shiru package
 const shiruPackage = {
   "name": "@rewelp/shiru-extensions",
   "version": "1.0.0",
@@ -47,7 +47,7 @@ const shiruPackage = {
 
 writeFileSync("./shiru/package.json", JSON.stringify(shiruPackage, null, 2));
 
-// Hayase index (unchanged)
+// Hayase index
 const hayaseIndex = sources.map((s) => ({
   id: `hayase.extension.${s.id}`,
   name: s.name,

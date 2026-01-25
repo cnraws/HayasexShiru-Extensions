@@ -70,7 +70,7 @@ export default new class SukebeiSrc extends AbstractSource {
    */
   async validate() {
     try {
-      // Use a real Sukebei search query for validation
+      // Test search
       const res = await fetch(this.base + 'one%20piece')
       return res.ok
     } catch {
