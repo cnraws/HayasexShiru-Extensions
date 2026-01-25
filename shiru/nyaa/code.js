@@ -3,6 +3,9 @@ export default {
   name: "Nyaa",
   type: "torrent",
 
+  // IMPORTANT: Shiru expects validate as a VALUE, not a function
+  validate: Promise.resolve(true),
+
   async single({ titles, episode }) {
     if (!titles?.length) return []
     return this._search(titles[0], episode)
@@ -14,13 +17,6 @@ export default {
 
   movie(options) {
     return this.single(options)
-  },
-
-  async validate() {
-    const res = await fetch(
-      "https://torrent-search-api-livid.vercel.app/api/nyaasi/one%20piece"
-    )
-    return res.ok
   },
 
   async _search(title, episode) {
