@@ -1,5 +1,5 @@
 export default new class Nyaa {
-  base = 'https://torrent-search-api-livid.vercel.app/api/nyaasi/'
+  base = 'https://torrentsearchapi-lake.vercel.app/api/nyaasi/'
 
   async single({ titles, episode }) {
     if (!titles?.length) return []
